@@ -1,13 +1,51 @@
-# Sample Hardhat Project
+# Stake Manager
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+## Installation
+To install the necessary dependencies, run the following command:
 
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
+```bash
+npm install
 ```
+
+or 
+```bash
+yarn install
+```
+
+##Deploying the Contract
+To deploy the contract to a local testnet, follow these steps:**
+
+1. Start your local Ethereum testnet, for example using Hardhat Network or Ganache.
+
+2. Deploy the contract:
+   
+```
+npx hardhat run scripts/deploy.js --network localhost
+```
+
+Replace localhost with the network of your choice. 
+
+##Testing the Contract
+To run the unit tests for the contract:
+
+```
+npx hardhat test
+```
+
+##Upgrading the Contract
+To upgrade your contract:
+
+1. Make necessary changes to your Solidity contract.
+
+2. Open the upgrade.ts file and replace the PROXY constant with the address of your deployed proxy contract. For example:
+
+```
+const PROXY = "0xYourDeployedProxyContractAddress";
+```
+
+3. Deploy the new contract version using the following command:
+
+```
+npx hardhat run scripts/upgrade.ts --network localhost
+```
+Replace localhost with the network of your choice.
